@@ -19,6 +19,8 @@ A wider fixed-width type buys more room. If the input consists of two hundred-di
 
 Use an `int` array to store the digits. `a[0]` holds the digit count. Starting at `a[1]`, store the ones, tens, hundreds, and so on. For `2026`, `a[0]` is `4` and `a[1]` through `a[4]` are `6, 2, 0, 2`. Read the string backward and subtract `'0'` from each character. Print from the highest digit down, skipping leading zeros and printing one `0` for zero.
 
+Why store the least significant digit first? Column addition and subtraction start at the ones place, and carries and borrows move to the next higher place. With this layout, the loop can start at index `1` and move forward. `a[i]` and `b[i]` refer to the same place value even if the numbers have different lengths. In `999 + 1`, the extra thousands digit simply goes in the next free slot.
+
 Put the three C++ blocks in one file, in order. Enter `999 1` to get `1000`.
 
 ```cpp
